@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">GPU-aware prefill and decode routing: proven system and multi-cloud extension</title>
+  <desc id="desc">The proven system routes through LiteLLM to one prefill worker and two decode workers. The target architecture selects a cloud placement domain before routing to local prefill and decode workers.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1020"/>
+      <stop offset="1" stop-color="#161f38"/>
+    </linearGradient>
+    <linearGradient id="gateway" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7457ff"/>
+      <stop offset="1" stop-color="#4b38bf"/>
+    </linearGradient>
+    <linearGradient id="prefill" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1fbf92"/>
+      <stop offset="1" stop-color="#087d69"/>
+    </linearGradient>
+    <linearGradient id="decode" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffb648"/>
+      <stop offset="1" stop-color="#e26b28"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="9" stdDeviation="10" flood-color="#000" flood-opacity="0.28"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#91a4c8"/>
+    </marker>
+    <style>
+      .title { font: 700 42px -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; fill: #f7f9ff; }
+      .section { font: 700 25px -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; fill: #dce6ff; }
+      .label { font: 700 21px -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; fill: #fff; }
+      .small { font: 500 16px -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; fill: #c9d5ef; }
+      .tiny { font: 500 14px -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; fill: #aab8d5; }
+      .chip { font: 700 14px -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; fill: #bfe9ff; }
+      .line { stroke: #91a4c8; stroke-width: 4; fill: none; marker-end: url(#arrow); }
+      .kv { stroke: #ffcf66; stroke-width: 5; stroke-dasharray: 10 8; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect width="1600" height="900" rx="30" fill="url(#background)"/>
+  <text x="70" y="72" class="title">GPU-aware routing: working proof → multi-cloud extension</text>
+
+  <rect x="55" y="112" width="705" height="725" rx="26" fill="#121a2d" stroke="#2a3b61" stroke-width="2"/>
+  <text x="88" y="157" class="section">PROVEN TODAY · REAL TRAFFIC</text>
+
+  <rect x="90" y="205" width="170" height="82" rx="18" fill="#263452" filter="url(#shadow)"/>
+  <text x="175" y="239" text-anchor="middle" class="label">Client</text>
+  <text x="175" y="263" text-anchor="middle" class="small">OpenAI chat API</text>
+
+  <rect x="322" y="194" width="220" height="105" rx="20" fill="url(#gateway)" filter="url(#shadow)"/>
+  <text x="432" y="232" text-anchor="middle" class="label">LiteLLM Gateway</text>
+  <text x="432" y="258" text-anchor="middle" class="small">metrics-aware meta-EPP</text>
+  <text x="432" y="280" text-anchor="middle" class="tiny">policy + audit trail</text>
+
+  <path d="M260 246 H318" class="line"/>
+  <path d="M542 246 H605 V363" class="line"/>
+
+  <rect x="519" y="344" width="180" height="92" rx="18" fill="url(#prefill)" filter="url(#shadow)"/>
+  <text x="609" y="380" text-anchor="middle" class="label">Prefill</text>
+  <text x="609" y="405" text-anchor="middle" class="small">read long context</text>
+
+  <rect x="150" y="541" width="205" height="92" rx="18" fill="url(#decode)" filter="url(#shadow)"/>
+  <text x="252" y="578" text-anchor="middle" class="label">Decode replica 1</text>
+  <text x="252" y="603" text-anchor="middle" class="small">generate tokens</text>
+
+  <rect x="460" y="541" width="205" height="92" rx="18" fill="url(#decode)" filter="url(#shadow)"/>
+  <text x="562" y="578" text-anchor="middle" class="label">Decode replica 2</text>
+  <text x="562" y="603" text-anchor="middle" class="small">generate tokens</text>
+
+  <path d="M609 436 V490 H252 V537" class="kv"/>
+  <path d="M609 436 V490 H562 V537" class="kv"/>
+  <text x="405" y="478" text-anchor="middle" class="chip">NIXL KV transfer</text>
+
+  <rect x="112" y="687" width="590" height="105" rx="18" fill="#1a253e" stroke="#33496f"/>
+  <text x="407" y="723" text-anchor="middle" class="label">One RTX 3090 · three time-sliced workers</text>
+  <text x="407" y="752" text-anchor="middle" class="small">Observed: prefill + both decoders + nonzero KV transfer</text>
+  <text x="407" y="777" text-anchor="middle" class="small">Audited: selected prefill, selected decoder, routing strategy</text>
+
+  <rect x="795" y="112" width="750" height="725" rx="26" fill="#121a2d" stroke="#2a3b61" stroke-width="2"/>
+  <text x="828" y="157" class="section">NEXT · MULTI-CLOUD PLACEMENT</text>
+
+  <rect x="1035" y="194" width="270" height="115" rx="20" fill="url(#gateway)" filter="url(#shadow)"/>
+  <text x="1170" y="230" text-anchor="middle" class="label">Global LiteLLM policy</text>
+  <text x="1170" y="258" text-anchor="middle" class="small">cost · latency · GPU capacity</text>
+  <text x="1170" y="282" text-anchor="middle" class="small">health · residency · compliance</text>
+
+  <rect x="830" y="390" width="325" height="300" rx="22" fill="#18243d" stroke="#43608f" stroke-width="2"/>
+  <text x="992" y="429" text-anchor="middle" class="label">Placement A</text>
+  <text x="992" y="454" text-anchor="middle" class="small">Cloud / region / GPU pool</text>
+  <rect x="872" y="488" width="240" height="62" rx="15" fill="url(#prefill)"/>
+  <text x="992" y="526" text-anchor="middle" class="label">Local prefill</text>
+  <rect x="852" y="584" width="130" height="62" rx="15" fill="url(#decode)"/>
+  <text x="917" y="622" text-anchor="middle" class="small">Decode 1</text>
+  <rect x="1001" y="584" width="130" height="62" rx="15" fill="url(#decode)"/>
+  <text x="1066" y="622" text-anchor="middle" class="small">Decode 2</text>
+  <path d="M992 550 V573 H917 V580" class="kv"/>
+  <path d="M992 550 V573 H1066 V580" class="kv"/>
+
+  <rect x="1185" y="390" width="325" height="300" rx="22" fill="#18243d" stroke="#43608f" stroke-width="2"/>
+  <text x="1347" y="429" text-anchor="middle" class="label">Placement B</text>
+  <text x="1347" y="454" text-anchor="middle" class="small">Second cloud / region / GPU pool</text>
+  <rect x="1227" y="488" width="240" height="62" rx="15" fill="url(#prefill)"/>
+  <text x="1347" y="526" text-anchor="middle" class="label">Local prefill</text>
+  <rect x="1207" y="584" width="130" height="62" rx="15" fill="url(#decode)"/>
+  <text x="1272" y="622" text-anchor="middle" class="small">Decode 1</text>
+  <rect x="1356" y="584" width="130" height="62" rx="15" fill="url(#decode)"/>
+  <text x="1421" y="622" text-anchor="middle" class="small">Decode 2</text>
+  <path d="M1347 550 V573 H1272 V580" class="kv"/>
+  <path d="M1347 550 V573 H1421 V580" class="kv"/>
+
+  <path d="M1120 309 L1000 386" class="line"/>
+  <path d="M1220 309 L1340 386" class="line"/>
+
+  <rect x="850" y="727" width="640" height="65" rx="16" fill="#24304b"/>
+  <text x="1170" y="754" text-anchor="middle" class="label">Select placement first; keep KV transfer local</text>
+  <text x="1170" y="778" text-anchor="middle" class="small">Avoid cross-cloud KV latency and egress cost</text>
+
+  <rect x="1265" y="128" width="244" height="42" rx="21" fill="#3b2d18" stroke="#d59636"/>
+  <text x="1387" y="155" text-anchor="middle" class="chip">TARGET ARCHITECTURE · NOT YET LIVE</text>
+</svg>
