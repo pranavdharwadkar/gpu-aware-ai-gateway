@@ -1,4 +1,4 @@
-# One Universal AI Model Endpoint: GPU-Aware Prompt Routing to Maximize GPU Utilization
+# One AI Model Endpoint: GPU-Aware Model Routing to Maximize GPU Utilization
 
 **[View the live case study](https://pranavdharwadkar.github.io/gpu-aware-ai-gateway-case-study/)**
 
