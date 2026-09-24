@@ -863,75 +863,6 @@ h1 em {
   margin-top: 8rem;
 }
 
-.dashboard-guide {
-  background: linear-gradient(135deg, rgba(15, 39, 59, 0.72), rgba(6, 17, 30, 0.74));
-  border: 1px solid var(--line);
-  margin-top: 3.25rem;
-  padding: clamp(1.4rem, 3vw, 2.5rem);
-}
-
-.dashboard-guide-heading {
-  max-width: 47rem;
-}
-
-.dashboard-guide-heading .eyebrow {
-  margin-bottom: 0.85rem;
-}
-
-.dashboard-guide-heading h3 {
-  font-size: clamp(1.35rem, 2vw, 1.85rem);
-  letter-spacing: -0.04em;
-  line-height: 1.12;
-  margin-bottom: 0.85rem;
-}
-
-.dashboard-guide-heading > p:last-child {
-  color: var(--muted);
-  font-size: 0.92rem;
-  margin-bottom: 0;
-}
-
-.dashboard-row-grid {
-  display: grid;
-  gap: 1px;
-  grid-template-columns: repeat(2, 1fr);
-  margin-top: 2rem;
-  background: var(--line);
-}
-
-.dashboard-row-card {
-  background: rgba(5, 16, 28, 0.9);
-  min-height: 170px;
-  padding: 1.35rem;
-}
-
-.dashboard-row-card span {
-  color: var(--cyan);
-  display: block;
-  font-family: "DM Mono", monospace;
-  font-size: 0.59rem;
-  letter-spacing: 0.1em;
-  margin-bottom: 0.85rem;
-}
-
-.dashboard-row-card h4 {
-  font-size: 1rem;
-  letter-spacing: -0.025em;
-  line-height: 1.2;
-  margin: 0 0 0.65rem;
-}
-
-.dashboard-row-card p {
-  color: var(--muted);
-  font-size: 0.82rem;
-  line-height: 1.65;
-  margin: 0;
-}
-
-.dashboard-row-card-proof {
-  grid-column: 1 / -1;
-}
-
 .evidence {
   margin: 3.5rem 0 0;
 }
@@ -1268,8 +1199,6 @@ footer {
   .proof-section,
   .architecture-section,
   .outcomes-section { margin-top: 4rem; }
-  .dashboard-row-grid { grid-template-columns: 1fr; }
-  .dashboard-row-card-proof { grid-column: auto; }
   .evidence figcaption { grid-template-columns: 1fr; }
   .outcomes-grid { grid-template-columns: 1fr; }
   .status-section { grid-template-columns: 1fr; margin: 0; }
