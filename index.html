@@ -32,7 +32,7 @@
       href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=2" />
+    <link rel="stylesheet" href="styles.css?v=3" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -54,10 +54,11 @@
       <section class="hero" id="top">
         <div class="hero-glow" aria-hidden="true"></div>
         <div class="hero-copy reveal">
-          <p class="eyebrow"><span></span> AI infrastructure case study</p>
+          <p class="eyebrow"><span></span> GPU-aware AI Gateway</p>
           <h1>
-            One AI Model Endpoint.<br />
-            <em>GPU-aware model routing to maximize GPU utilization.</em>
+            <span>One AI Model Endpoint.</span>
+            <em>GPU-aware Model Routing</em>
+            <em>to Maximize GPU Utilization.</em>
           </h1>
           <p class="hero-summary">
             A policy-driven AI Gateway that routes input-processing-heavy and
@@ -85,7 +86,7 @@
             <span class="node-index">02</span>
             <div>
               <small>POLICY CONTROL PLANE</small>
-              <strong>GPU-aware gateway</strong>
+              <strong>GPU-aware AI Gateway</strong>
             </div>
             <span class="live-dot">Live</span>
           </div>
@@ -111,10 +112,19 @@
         </div>
 
         <div class="hero-stats reveal">
-          <div><strong>1</strong><span>stable client API</span></div>
-          <div><strong>2</strong><span>independent workload stages</span></div>
-          <div><strong>3</strong><span>GPU workers in live validation</span></div>
-          <div><strong>100%</strong><span>request-level routing audit</span></div>
+          <div>
+            <strong>1</strong>
+            <span>Universal AI-Model Endpoint API</span>
+          </div>
+          <div class="stage-stat">
+            <strong>2</strong>
+            <span>Prompt processing stages</span>
+            <small>Prefill for input processing · Decode for output-token generation</small>
+          </div>
+          <div>
+            <strong>100%</strong>
+            <span>Request-level routing audit</span>
+          </div>
         </div>
       </section>
 
@@ -163,11 +173,40 @@
             before selecting an input worker and an output worker.
           </p>
         </div>
-        <div class="policy-list reveal">
-          <div><span>01</span><p><strong>Classify</strong> the workload shape and constraints.</p></div>
-          <div><span>02</span><p><strong>Place</strong> the request in an eligible GPU environment.</p></div>
-          <div><span>03</span><p><strong>Route</strong> each stage using live serving signals.</p></div>
-          <div><span>04</span><p><strong>Record</strong> the complete infrastructure decision.</p></div>
+        <div
+          class="decision-diagram reveal"
+          role="img"
+          aria-label="Live GPU metrics flow to the GPU-aware AI Gateway, where the Endpoint Picker Decision Engine selects separate Prefill and Decode processing endpoints"
+        >
+          <div class="diagram-title">PREFILL / DECODE DISAGGREGATION</div>
+          <div class="metrics-source">
+            <span class="diagram-kicker">LIVE INFRASTRUCTURE SIGNALS</span>
+            <strong>GPU telemetry</strong>
+            <p>Utilization · queue depth · cache state · active requests</p>
+          </div>
+          <div class="diagram-arrow arrow-down" aria-hidden="true"><span>↓</span></div>
+          <div class="gateway-engine">
+            <span class="diagram-kicker">GPU-AWARE AI GATEWAY</span>
+            <div class="engine-core">
+              <small>DECISION ENGINE</small>
+              <strong>Endpoint Picker</strong>
+              <p>Scores live signals and selects the processing endpoints</p>
+            </div>
+          </div>
+          <div class="diagram-branch" aria-hidden="true"><span></span><span></span></div>
+          <div class="stage-endpoints">
+            <div class="stage-endpoint prefill-endpoint">
+              <small>STAGE A</small>
+              <strong>Prefill</strong>
+              <p>Input processing</p>
+            </div>
+            <div class="stage-endpoint decode-endpoint">
+              <small>STAGE B</small>
+              <strong>Decode</strong>
+              <p>Output-token generation</p>
+            </div>
+          </div>
+          <div class="state-transfer"><span>Prepared model state</span><i>→</i></div>
         </div>
       </section>
 
