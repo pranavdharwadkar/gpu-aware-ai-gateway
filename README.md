@@ -1,4 +1,4 @@
-# Multi-Cloud GPU-Aware AI Gateway
+# One Universal AI Model Endpoint: GPU-Aware Prompt Routing to Maximize GPU Utilization
 
 ## Executive summary
 
