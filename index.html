@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A business and engineering case study for a policy-driven, multi-cloud GPU-aware AI gateway."
+    />
+    <meta name="theme-color" content="#07111f" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Multi-Cloud GPU-Aware AI Gateway" />
+    <meta
+      property="og:description"
+      content="One AI API. Workload-aware GPU placement. Auditable routing decisions."
+    />
+    <meta
+      property="og:url"
+      content="https://pranavdharwadkar.github.io/gpu-aware-ai-gateway-case-study/"
+    />
+    <meta
+      property="og:image"
+      content="https://pranavdharwadkar.github.io/gpu-aware-ai-gateway-case-study/assets/prefill-decode-evidence.png"
+    />
+    <title>Multi-Cloud GPU-Aware AI Gateway | Case Study</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Case study home">
+        <span class="brand-mark" aria-hidden="true">PD</span>
+        <span>Pranav Dharwadkar</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#proof">Proof</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#outcomes">Outcomes</a>
+        <a class="nav-cta" href="#contact">Technical review</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="hero-copy reveal">
+          <p class="eyebrow"><span></span> AI infrastructure case study</p>
+          <h1>
+            One AI API.<br />
+            <em>Smarter GPU placement.</em>
+          </h1>
+          <p class="hero-summary">
+            A policy-driven gateway that separates input-processing-heavy and
+            output-generation-heavy AI workloads, routes them using live
+            infrastructure signals, and makes every decision auditable.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#proof">See the working proof</a>
+            <a class="button button-secondary" href="#architecture">Explore the design</a>
+          </div>
+        </div>
+
+        <div class="hero-system reveal" aria-label="Gateway request flow">
+          <div class="system-label">LIVE REQUEST PATH</div>
+          <div class="system-node system-client">
+            <span class="node-index">01</span>
+            <div>
+              <small>APPLICATION</small>
+              <strong>Standard AI API</strong>
+            </div>
+          </div>
+          <div class="system-line"><span></span></div>
+          <div class="system-node system-gateway">
+            <span class="node-index">02</span>
+            <div>
+              <small>POLICY CONTROL PLANE</small>
+              <strong>GPU-aware gateway</strong>
+            </div>
+            <span class="live-dot">Live</span>
+          </div>
+          <div class="system-split" aria-hidden="true"><span></span><span></span></div>
+          <div class="system-workers">
+            <div class="worker-card input-card">
+              <span class="worker-icon">IN</span>
+              <small>STAGE A</small>
+              <strong>Input processing</strong>
+              <p>Long context · retrieval · histories</p>
+            </div>
+            <div class="worker-card output-card">
+              <span class="worker-icon">OUT</span>
+              <small>STAGE B</small>
+              <strong>Output generation</strong>
+              <p>Reasoning · responses · token streams</p>
+            </div>
+          </div>
+          <div class="system-transfer">
+            <span>Prepared model state</span>
+            <i aria-hidden="true">→</i>
+          </div>
+        </div>
+
+        <div class="hero-stats reveal">
+          <div><strong>1</strong><span>stable client API</span></div>
+          <div><strong>2</strong><span>independent workload stages</span></div>
+          <div><strong>3</strong><span>GPU workers in live validation</span></div>
+          <div><strong>100%</strong><span>request-level routing audit</span></div>
+        </div>
+      </section>
+
+      <section class="section problem-section">
+        <div class="section-heading reveal">
+          <p class="eyebrow"><span></span> The business problem</p>
+          <h2>AI demand is not one workload.</h2>
+          <p>
+            Long documents and conversation histories stress input processing.
+            Detailed answers stress output generation. Scaling both as one
+            indivisible service wastes expensive capacity and hides the reason
+            for poor performance.
+          </p>
+        </div>
+        <div class="problem-grid">
+          <article class="problem-card reveal">
+            <span>01</span>
+            <h3>Expensive capacity</h3>
+            <p>Uniform replicas leave specialized GPU resources underused.</p>
+          </article>
+          <article class="problem-card reveal">
+            <span>02</span>
+            <h3>Uneven demand</h3>
+            <p>Input and generation workloads create different bottlenecks.</p>
+          </article>
+          <article class="problem-card reveal">
+            <span>03</span>
+            <h3>Cloud concentration</h3>
+            <p>Applications become tied to one provider, region, or accelerator.</p>
+          </article>
+          <article class="problem-card reveal">
+            <span>04</span>
+            <h3>Hidden decisions</h3>
+            <p>Routing is difficult to explain when policy lives inside applications.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section solution-section">
+        <div class="solution-copy reveal">
+          <p class="eyebrow"><span></span> The solution</p>
+          <h2>A control plane between applications and GPU infrastructure.</h2>
+          <p>
+            Applications keep a familiar API. The gateway evaluates health,
+            queue depth, capacity, cache pressure, session affinity, and policy
+            before selecting an input worker and an output worker.
+          </p>
+        </div>
+        <div class="policy-list reveal">
+          <div><span>01</span><p><strong>Classify</strong> the workload shape and constraints.</p></div>
+          <div><span>02</span><p><strong>Place</strong> the request in an eligible GPU environment.</p></div>
+          <div><span>03</span><p><strong>Route</strong> each stage using live serving signals.</p></div>
+          <div><span>04</span><p><strong>Record</strong> the complete infrastructure decision.</p></div>
+        </div>
+      </section>
+
+      <section class="section proof-section" id="proof">
+        <div class="section-heading reveal">
+          <p class="eyebrow"><span></span> Working proof</p>
+          <h2>Real traffic. Separate stages. Observable transfer.</h2>
+          <p>
+            The development validation runs one input-processing worker and two
+            output-generation workers. The signals below move together under a
+            controlled live workload.
+          </p>
+        </div>
+        <figure class="evidence evidence-wide reveal">
+          <div class="evidence-frame">
+            <img
+              src="assets/prefill-decode-evidence.png"
+              alt="Live dashboard with completed requests, token throughput, and prepared-state transfer across separate input and output workers"
+              loading="lazy"
+            />
+          </div>
+          <figcaption>
+            <span>LIVE TELEMETRY</span>
+            <p>
+              Completed requests confirm both stages participate. Token rates
+              expose distinct workload shapes. Transfer peaks near 20–22 MB/s
+              across both output workers.
+            </p>
+          </figcaption>
+        </figure>
+
+        <div class="evidence-grid">
+          <figure class="evidence reveal">
+            <div class="evidence-frame evidence-frame-tall">
+              <img
+                src="assets/routing-audit-evidence.png"
+                alt="Request audit view showing a successful request and the selected input and output workers"
+                loading="lazy"
+              />
+            </div>
+            <figcaption>
+              <span>REQUEST AUDIT</span>
+              <p>Every request retains its strategy, route, and selected workers.</p>
+            </figcaption>
+          </figure>
+          <aside class="proof-points reveal">
+            <p class="eyebrow"><span></span> What this proves</p>
+            <div class="proof-point">
+              <strong>01</strong>
+              <p>The input stage performs real work—it is not an idle diagram component.</p>
+            </div>
+            <div class="proof-point">
+              <strong>02</strong>
+              <p>Generation traffic is distributed across multiple output workers.</p>
+            </div>
+            <div class="proof-point">
+              <strong>03</strong>
+              <p>Prepared model state moves between stages instead of being recomputed.</p>
+            </div>
+            <div class="proof-point">
+              <strong>04</strong>
+              <p>The application request is traceable to the infrastructure decision.</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section architecture-section" id="architecture">
+        <div class="section-heading reveal">
+          <p class="eyebrow"><span></span> Multi-cloud architecture</p>
+          <h2>Global placement. Local precision.</h2>
+          <p>
+            The validated local routing path becomes the building block for
+            portable placement across clouds, regions, and accelerator pools.
+          </p>
+        </div>
+        <div class="architecture-visual reveal">
+          <img
+            src="assets/multicloud-gpu-routing.svg"
+            alt="Architecture diagram showing the validated local routing path and planned multi-cloud GPU placement"
+            loading="lazy"
+          />
+        </div>
+        <div class="architecture-notes">
+          <article class="reveal">
+            <span>GLOBAL PLACEMENT</span>
+            <h3>Choose the right environment</h3>
+            <p>
+              Evaluate availability, accelerator compatibility, latency, cost,
+              data residency, and customer policy.
+            </p>
+          </article>
+          <article class="reveal">
+            <span>CLUSTER-LOCAL ROUTING</span>
+            <h3>Choose the right workers</h3>
+            <p>
+              Use fine-grained queue, cache, health, and affinity signals after
+              selecting the placement.
+            </p>
+          </article>
+        </div>
+        <p class="architecture-principle reveal">
+          <strong>Design principle:</strong> keep high-volume model-state transfer
+          inside one placement domain while shifting new sessions across clouds
+          when capacity or policy requires it.
+        </p>
+      </section>
+
+      <section class="section outcomes-section" id="outcomes">
+        <div class="section-heading reveal">
+          <p class="eyebrow"><span></span> Business outcomes</p>
+          <h2>Infrastructure complexity becomes platform leverage.</h2>
+        </div>
+        <div class="outcomes-grid">
+          <article class="outcome reveal">
+            <span class="outcome-number">01</span>
+            <h3>Better utilization</h3>
+            <p>Place and scale input-heavy and output-heavy work independently.</p>
+          </article>
+          <article class="outcome reveal">
+            <span class="outcome-number">02</span>
+            <h3>Lower cost</h3>
+            <p>Route using measured capacity and unit economics, not static preference.</p>
+          </article>
+          <article class="outcome reveal">
+            <span class="outcome-number">03</span>
+            <h3>Greater resilience</h3>
+            <p>Move new sessions away from unhealthy or saturated GPU pools.</p>
+          </article>
+          <article class="outcome reveal">
+            <span class="outcome-number">04</span>
+            <h3>Cloud portability</h3>
+            <p>Preserve one client API across on-premises and cloud environments.</p>
+          </article>
+          <article class="outcome reveal">
+            <span class="outcome-number">05</span>
+            <h3>Central policy</h3>
+            <p>Enforce residency, compliance, application, and customer constraints.</p>
+          </article>
+          <article class="outcome reveal">
+            <span class="outcome-number">06</span>
+            <h3>Explainable operations</h3>
+            <p>Correlate routing decisions with GPU, latency, and request telemetry.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section status-section">
+        <div class="status-column validated reveal">
+          <p class="eyebrow"><span></span> Validated now</p>
+          <h2>End-to-end disaggregation</h2>
+          <ul>
+            <li>Standard chat requests traverse the separated input/output path.</li>
+            <li>One input worker and two output workers handle real traffic.</li>
+            <li>Live policy distributes output work across both workers.</li>
+            <li>Transfer counters and routing audit records confirm the path.</li>
+          </ul>
+        </div>
+        <div class="status-column next reveal">
+          <p class="eyebrow"><span></span> Next validation</p>
+          <h2>Two-placement demonstration</h2>
+          <ul>
+            <li>Deploy the same placement domain in a second cloud or region.</li>
+            <li>Add capacity, accelerator, cost, and residency metadata.</li>
+            <li>Demonstrate spillover and controlled failover.</li>
+            <li>Compare cost and performance per successful request.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section contribution-section">
+        <div class="contribution-card reveal">
+          <p class="eyebrow"><span></span> My contribution</p>
+          <h2>From architecture to observable proof.</h2>
+          <p>
+            I designed the routing contract, implemented the gateway policy
+            plug-in, created repeatable load profiles, integrated request-level
+            decision metadata, built the operational dashboards, diagnosed GPU
+            deployment constraints, and validated the complete path with real traffic.
+          </p>
+          <div class="technology-row" aria-label="Technology profile">
+            <span>Python</span><span>Kubernetes</span><span>GPU inference</span>
+            <span>Policy plug-ins</span><span>Prometheus</span><span>Grafana</span>
+            <span>OpenAI-compatible API</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-section" id="contact">
+        <div class="reveal">
+          <p class="eyebrow"><span></span> Technical review</p>
+          <h2>Want to see how it works?</h2>
+          <p>
+            The implementation repository remains private to protect deployment
+            details. Repository access and a live technical walkthrough are
+            available for serious engineering conversations.
+          </p>
+          <div class="contact-actions">
+            <a
+              class="button button-primary"
+              href="https://github.com/pranavdharwadkar/aigw-epp"
+              rel="noreferrer"
+            >
+              Private engineering repository
+            </a>
+            <a
+              class="button button-secondary"
+              href="https://github.com/pranavdharwadkar"
+              rel="noreferrer"
+            >
+              GitHub profile
+            </a>
+          </div>
+          <small>Private repository access requires an invitation.</small>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>© 2026 Pranav Dharwadkar</span>
+      <span>Designed and built as an independent engineering case study.</span>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
