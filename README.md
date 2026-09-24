@@ -1,6 +1,6 @@
 # One AI Model Endpoint: GPU-Aware Model Routing to Maximize GPU Utilization
 
-**[View the live case study](https://pranavdharwadkar.github.io/gpu-aware-ai-gateway-case-study/)**
+**[View the live case study](https://pranavdharwadkar.github.io/gpu-aware-ai-gateway/)**
 
 ## Executive summary
 
