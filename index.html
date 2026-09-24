@@ -32,7 +32,7 @@
       href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=3" />
+    <link rel="stylesheet" href="styles.css?v=4" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -176,37 +176,89 @@
         <div
           class="decision-diagram reveal"
           role="img"
-          aria-label="Live GPU metrics flow to the GPU-aware AI Gateway, where the Endpoint Picker Decision Engine selects separate Prefill and Decode processing endpoints"
+          aria-label="Multiple AI agents send input-heavy and output-heavy prompts to the GPU-aware AI Gateway. Its Endpoint Picker decision engine routes work to separate Prefill and Decode GPU clusters. Dashed arrows return GPU telemetry and infrastructure signals to the gateway."
         >
-          <div class="diagram-title">PREFILL / DECODE DISAGGREGATION</div>
-          <div class="metrics-source">
-            <span class="diagram-kicker">LIVE INFRASTRUCTURE SIGNALS</span>
-            <strong>GPU telemetry</strong>
-            <p>Utilization · queue depth · cache state · active requests</p>
+          <div class="diagram-heading">
+            <span>PREFILL / DECODE DISAGGREGATION</span>
+            <strong>GPU-aware AI Gateway</strong>
           </div>
-          <div class="diagram-arrow arrow-down" aria-hidden="true"><span>↓</span></div>
+
+          <div class="agent-layer">
+            <div class="layer-label">AI AGENTS · DIFFERENT PROMPT SHAPES</div>
+            <div class="agent-grid">
+              <div class="agent-card input-agent">
+                <span class="agent-id">A1</span>
+                <strong>Commerce Agent</strong>
+                <small>INPUT-PROCESSING HEAVY</small>
+                <p>Catalog + policy context</p>
+              </div>
+              <div class="agent-card input-agent">
+                <span class="agent-id">A2</span>
+                <strong>Support Agent</strong>
+                <small>INPUT-PROCESSING HEAVY</small>
+                <p>Long customer history</p>
+              </div>
+              <div class="agent-card output-agent">
+                <span class="agent-id">A3</span>
+                <strong>Research Agent</strong>
+                <small>OUTPUT-GENERATION HEAVY</small>
+                <p>Detailed synthesis</p>
+              </div>
+              <div class="agent-card output-agent">
+                <span class="agent-id">A4</span>
+                <strong>Coding Agent</strong>
+                <small>OUTPUT-GENERATION HEAVY</small>
+                <p>Long-form generation</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="agent-flow" aria-hidden="true">
+            <span></span><strong>Prompt requests</strong><span>↓</span>
+          </div>
+
           <div class="gateway-engine">
             <span class="diagram-kicker">GPU-AWARE AI GATEWAY</span>
             <div class="engine-core">
-              <small>DECISION ENGINE</small>
-              <strong>Endpoint Picker</strong>
-              <p>Scores live signals and selects the processing endpoints</p>
+              <small>ENDPOINT PICKER · DECISION ENGINE</small>
+              <strong>Selects the best GPU cluster</strong>
+              <p>Prompt shape + utilization + queue depth + cache state + active requests</p>
             </div>
           </div>
-          <div class="diagram-branch" aria-hidden="true"><span></span><span></span></div>
-          <div class="stage-endpoints">
-            <div class="stage-endpoint prefill-endpoint">
-              <small>STAGE A</small>
-              <strong>Prefill</strong>
-              <p>Input processing</p>
+
+          <div class="route-feedback-layer" aria-hidden="true">
+            <div class="route-channel">
+              <span class="route-down">Endpoint decision ↓</span>
+              <span class="telemetry-up">↑ GPU telemetry</span>
             </div>
-            <div class="stage-endpoint decode-endpoint">
-              <small>STAGE B</small>
-              <strong>Decode</strong>
-              <p>Output-token generation</p>
+            <div class="route-channel">
+              <span class="route-down">Endpoint decision ↓</span>
+              <span class="telemetry-up">↑ GPU telemetry</span>
             </div>
           </div>
-          <div class="state-transfer"><span>Prepared model state</span><i>→</i></div>
+
+          <div class="infrastructure-layer">
+            <div class="layer-label">GPU INFRASTRUCTURE</div>
+            <div class="cluster-grid">
+              <div class="gpu-cluster prefill-cluster">
+                <small>INPUT-PROCESSING HEAVY</small>
+                <strong>Prefill GPU Cluster</strong>
+                <p>Processes prompts, documents, histories, and retrieved context</p>
+                <div class="gpu-nodes"><span>GPU 01</span><span>GPU 02</span></div>
+              </div>
+              <div class="gpu-cluster decode-cluster">
+                <small>OUTPUT-GENERATION HEAVY</small>
+                <strong>Decode GPU Cluster</strong>
+                <p>Generates response tokens and sustained output streams</p>
+                <div class="gpu-nodes"><span>GPU 01</span><span>GPU 02</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="telemetry-legend">
+            <span class="solid-key"></span> Request routing
+            <span class="dashed-key"></span> Infrastructure signals to AI Gateway
+          </div>
         </div>
       </section>
 
