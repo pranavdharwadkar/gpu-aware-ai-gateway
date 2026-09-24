@@ -178,11 +178,6 @@
           role="img"
           aria-label="Multiple AI agents send input-heavy and output-heavy prompts to the GPU-aware AI Gateway. Its Endpoint Picker decision engine routes work to separate Prefill and Decode GPU clusters. Dashed arrows return GPU telemetry and infrastructure signals to the gateway."
         >
-          <div class="diagram-heading">
-            <span>PREFILL / DECODE DISAGGREGATION</span>
-            <strong>Multiple agents. One model endpoint.</strong>
-          </div>
-
           <div class="agent-layer">
             <div class="layer-label">AI AGENTS · DIFFERENT PROMPT SHAPES</div>
             <div class="agent-grid">
@@ -265,7 +260,10 @@
       <section class="section proof-section" id="proof">
         <div class="section-heading reveal">
           <p class="eyebrow"><span></span> Working proof</p>
-          <h2>Real traffic. Separate stages. Observable transfer.</h2>
+          <h2>
+            Real traffic. Disaggregated input-processing and output-generation
+            prompts routed to separate GPU clusters.
+          </h2>
           <p>
             The development validation runs one input-processing worker and two
             output-generation workers. The signals below move together under a
