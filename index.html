@@ -270,20 +270,78 @@
             controlled live workload.
           </p>
         </div>
+        <div class="dashboard-guide reveal" aria-label="How to read the live dashboard">
+          <div class="dashboard-guide-heading">
+            <p class="eyebrow"><span></span> Dashboard guide</p>
+            <h3>Five views answer five operational questions.</h3>
+            <p>
+              These rows translate low-level telemetry into the questions a
+              business or delivery team needs answered: Is capacity healthy?
+              Where is work building up? Is reuse reducing repeated work? And
+              did both processing stages actually participate?
+            </p>
+          </div>
+          <div class="dashboard-row-grid">
+            <article class="dashboard-row-card">
+              <span>01 · GPU PLATFORM HEALTH</span>
+              <h4>Is the infrastructure ready for demand?</h4>
+              <p>
+                GPU availability, memory, temperature, power draw, and worker
+                readiness show whether the platform has safe, usable capacity.
+              </p>
+            </article>
+            <article class="dashboard-row-card">
+              <span>02 · WORKER PRESSURE</span>
+              <h4>Which processing pool is under pressure?</h4>
+              <p>
+                Queue depth, active requests, and model-state cache occupancy
+                reveal where requests are waiting and where routing should
+                avoid adding more work.
+              </p>
+            </article>
+            <article class="dashboard-row-card">
+              <span>03 · REUSE EFFECTIVENESS</span>
+              <h4>Are repeated prompts doing less repeated work?</h4>
+              <p>
+                Local and shared prefix-cache hit rates show how often existing
+                prompt preparation can be reused instead of recomputed.
+              </p>
+            </article>
+            <article class="dashboard-row-card">
+              <span>04 · TRAFFIC &amp; TOKEN THROUGHPUT</span>
+              <h4>What kind of AI demand is arriving?</h4>
+              <p>
+                Completed requests and prompt-versus-generated token rates
+                distinguish context-heavy demand from sustained answer
+                generation, guiding capacity planning and routing policy.
+              </p>
+            </article>
+            <article class="dashboard-row-card dashboard-row-card-proof">
+              <span>05 · DISAGGREGATION PROOF</span>
+              <h4>Did the input and output stages work as a coordinated system?</h4>
+              <p>
+                Prefill and decode request rates, their distinct token shapes,
+                and model-state transfer throughput provide the direct proof:
+                input processing and output generation are separate, active,
+                and connected.
+              </p>
+            </article>
+          </div>
+        </div>
         <figure class="evidence evidence-wide reveal">
           <div class="evidence-frame">
             <img
               src="assets/prefill-decode-evidence.png"
-              alt="Live dashboard with completed requests, token throughput, and prepared-state transfer across separate input and output workers"
+              alt="Live Grafana evidence showing traffic and token throughput above the Prefill and Decode disaggregation proof row"
               loading="lazy"
             />
           </div>
           <figcaption>
-            <span>LIVE TELEMETRY</span>
+            <span>ROWS 04 + 05 · LIVE TELEMETRY</span>
             <p>
-              Completed requests confirm both stages participate. Token rates
-              expose distinct workload shapes. Transfer peaks near 20–22 MB/s
-              across both output workers.
+              The upper charts show live request and token demand by worker.
+              The lower row confirms that both stages process requests, carry
+              different workload shapes, and exchange prepared model state.
             </p>
           </figcaption>
         </figure>
