@@ -377,9 +377,12 @@ h1 em {
 }
 
 .system-workers {
+  background: rgba(255, 255, 255, 0.018);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   display: grid;
   gap: 0.75rem;
   grid-template-columns: 1fr 1fr;
+  padding: 0.75rem;
 }
 
 .environment-box {
@@ -401,8 +404,8 @@ h1 em {
   color: var(--muted);
   display: block;
   font-family: "DM Mono", monospace;
-  font-size: 0.54rem;
-  letter-spacing: 0.1em;
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
   margin-bottom: 0.65rem;
   text-align: center;
 }
