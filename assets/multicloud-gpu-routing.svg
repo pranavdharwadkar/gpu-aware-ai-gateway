@@ -121,8 +121,8 @@
   <path d="M1247 550 V580 H1450 V554" class="kv"/>
   <path d="M1350 580 V554" class="kv-small"/>
 
-  <path d="M1120 309 L1000 386" class="line"/>
-  <path d="M1240 309 L1340 386" class="line"/>
+  <path d="M1120 309 V332 H1000 V386" class="line"/>
+  <path d="M1240 309 V332 H1340 V386" class="line"/>
   <path d="M1028 390 V350 H1160 V313" class="telemetry"/>
   <path d="M1365 390 V350 H1260 V313" class="telemetry"/>
   <text x="1080" y="345" text-anchor="middle" class="chip">GPU telemetry</text>
