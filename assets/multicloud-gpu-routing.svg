@@ -36,6 +36,7 @@
       .small { font: 500 16px -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; fill: #c9d5ef; }
       .tiny { font: 500 14px -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; fill: #aab8d5; }
       .chip { font: 700 14px -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; fill: #bfe9ff; }
+      .telemetry-label { font: 600 12px -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; fill: #60e6d2; }
       .line { stroke: #91a4c8; stroke-width: 4; fill: none; marker-end: url(#arrow); }
       .kv { stroke: #ffcf66; stroke-width: 4; stroke-dasharray: 10 8; fill: none; marker-end: url(#arrow-small); }
       .kv-small { stroke: #ffcf66; stroke-width: 4; stroke-dasharray: 10 8; fill: none; marker-end: url(#arrow-small); }
@@ -125,8 +126,8 @@
   <path d="M1240 309 V332 H1340 V386" class="line"/>
   <path d="M1028 390 V350 H1160 V313" class="telemetry"/>
   <path d="M1365 390 V350 H1260 V313" class="telemetry"/>
-  <text x="1080" y="345" text-anchor="middle" class="chip">GPU telemetry</text>
-  <text x="1305" y="345" text-anchor="middle" class="chip">GPU telemetry</text>
+  <text x="1080" y="368" text-anchor="middle" class="telemetry-label">GPU telemetry</text>
+  <text x="1305" y="368" text-anchor="middle" class="telemetry-label">GPU telemetry</text>
 
   <rect x="850" y="727" width="640" height="65" rx="16" fill="#24304b"/>
   <text x="1170" y="754" text-anchor="middle" class="label">Select placement first; keep KV transfer local</text>
