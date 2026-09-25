@@ -77,32 +77,54 @@
           <div class="system-node system-client">
             <span class="node-index">01</span>
             <div>
-              <small>APPLICATION</small>
-              <strong>Standard AI API</strong>
+              <small>AI APPLICATION / AGENT</small>
+              <strong>AI App / Agent</strong>
             </div>
           </div>
           <div class="system-line"><span></span></div>
           <div class="system-node system-gateway">
             <span class="node-index">02</span>
             <div>
-              <small>POLICY CONTROL PLANE</small>
-              <strong>GPU-aware AI Gateway</strong>
+              <small>GPU-AWARE AI GATEWAY</small>
+              <strong>Endpoint Picker Decision Engine</strong>
             </div>
             <span class="live-dot">Live</span>
           </div>
           <div class="system-split" aria-hidden="true"><span></span><span></span></div>
           <div class="system-workers">
-            <div class="worker-card input-card">
-              <span class="worker-icon">IN</span>
-              <small>STAGE A</small>
-              <strong>Input processing</strong>
-              <p>Long context · retrieval · histories</p>
+            <div class="environment-box onprem-box">
+              <span class="environment-label">ON-PREMISE</span>
+              <div class="environment-workers">
+                <div class="worker-card input-card">
+                  <span class="worker-icon">IN</span>
+                  <small>PREFILL</small>
+                  <strong>Input processing</strong>
+                  <p>Long context · retrieval · histories</p>
+                </div>
+                <div class="worker-card output-card">
+                  <span class="worker-icon">OUT</span>
+                  <small>DECODE</small>
+                  <strong>Output generation</strong>
+                  <p>Reasoning · responses · token streams</p>
+                </div>
+              </div>
             </div>
-            <div class="worker-card output-card">
-              <span class="worker-icon">OUT</span>
-              <small>STAGE B</small>
-              <strong>Output generation</strong>
-              <p>Reasoning · responses · token streams</p>
+            <div class="environment-box cloud-box">
+              <span class="environment-label">PUBLIC CLOUD / NEO-CLOUD</span>
+              <div class="environment-workers">
+                <div class="worker-card input-card">
+                  <span class="worker-icon">IN</span>
+                  <small>PREFILL</small>
+                  <strong>Input processing</strong>
+                  <p>Elastic prompt capacity</p>
+                </div>
+                <div class="worker-card output-card">
+                  <span class="worker-icon">OUT</span>
+                  <small>DECODE</small>
+                  <strong>Output generation</strong>
+                  <p>Elastic token generation</p>
+                </div>
+              </div>
             </div>
           </div>
           <div class="system-transfer">

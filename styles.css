@@ -382,6 +382,37 @@ h1 em {
   grid-template-columns: 1fr 1fr;
 }
 
+.environment-box {
+  border: 1px solid var(--line);
+  padding: 0.75rem;
+}
+
+.onprem-box {
+  background: rgba(96, 230, 210, 0.035);
+  border-color: rgba(96, 230, 210, 0.26);
+}
+
+.cloud-box {
+  background: rgba(101, 168, 255, 0.035);
+  border-color: rgba(101, 168, 255, 0.26);
+}
+
+.environment-label {
+  color: var(--muted);
+  display: block;
+  font-family: "DM Mono", monospace;
+  font-size: 0.54rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.65rem;
+  text-align: center;
+}
+
+.environment-workers {
+  display: grid;
+  gap: 0.55rem;
+  grid-template-columns: 1fr 1fr;
+}
+
 .worker-card {
   background: rgba(255, 255, 255, 0.025);
   border: 1px solid var(--line);
@@ -393,6 +424,28 @@ h1 em {
   color: var(--subtle);
   font-size: 0.65rem;
   margin: 0.55rem 0 0;
+}
+
+.environment-box .worker-card {
+  min-height: 132px;
+  padding: 0.8rem;
+}
+
+.environment-box .worker-card strong {
+  display: block;
+  font-size: 0.8rem;
+  line-height: 1.2;
+}
+
+.environment-box .worker-card p {
+  font-size: 0.58rem;
+  line-height: 1.35;
+}
+
+.environment-box .worker-icon {
+  height: 30px;
+  margin-bottom: 0.7rem;
+  width: 30px;
 }
 
 .worker-icon {
@@ -1179,7 +1232,9 @@ footer {
   .contact-actions .button { width: 100%; }
   .system-workers { grid-template-columns: 1fr; }
   .system-split { display: none; }
-  .worker-card { min-height: 130px; margin-top: 0.75rem; }
+  .environment-workers { grid-template-columns: 1fr 1fr; }
+  .environment-box + .environment-box { margin-top: 0.75rem; }
+  .worker-card { min-height: 130px; margin-top: 0; }
   .hero-stats { grid-template-columns: 1fr; }
   .hero-stats div { border-bottom: 1px solid var(--line); border-right: 0; }
   .problem-grid { grid-template-columns: 1fr; }
