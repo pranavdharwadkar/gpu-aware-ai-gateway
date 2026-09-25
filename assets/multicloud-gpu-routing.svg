@@ -64,15 +64,14 @@
   <text x="190" y="451" text-anchor="middle" class="small">read long context</text>
 
   <rect x="330" y="390" width="180" height="92" rx="18" fill="url(#decode)" filter="url(#shadow)"/>
-  <text x="420" y="426" text-anchor="middle" class="label">Decode replica 1</text>
+  <text x="420" y="426" text-anchor="middle" class="label">Decode worker 1</text>
   <text x="420" y="451" text-anchor="middle" class="small">generate tokens</text>
 
   <rect x="560" y="390" width="180" height="92" rx="18" fill="url(#decode)" filter="url(#shadow)"/>
-  <text x="650" y="426" text-anchor="middle" class="label">Decode replica 2</text>
+  <text x="650" y="426" text-anchor="middle" class="label">Decode worker 2</text>
   <text x="650" y="451" text-anchor="middle" class="small">generate tokens</text>
 
-  <path d="M190 482 V520 H420 V486" class="kv"/>
-  <path d="M190 482 V542 H650 V486" class="kv"/>
+  <path d="M190 482 V520 H650 V486" class="kv"/>
   <text x="420" y="514" text-anchor="middle" class="chip">NIXL KV transfer</text>
 
   <rect x="112" y="687" width="590" height="105" rx="18" fill="#1a253e" stroke="#33496f"/>
@@ -102,8 +101,8 @@
   <text x="995" y="524" text-anchor="middle" class="small">Decode 1</text>
   <rect x="1050" y="488" width="90" height="62" rx="15" fill="url(#decode)"/>
   <text x="1095" y="524" text-anchor="middle" class="small">Decode 2</text>
-  <path d="M940 519 H950" class="kv"/>
-  <path d="M940 531 H1050" class="kv"/>
+  <path d="M892 550 V580 H995 V554" class="kv"/>
+  <path d="M892 550 V598 H1095 V554" class="kv"/>
 
   <rect x="1185" y="390" width="325" height="300" rx="22" fill="#18243d" stroke="#43608f" stroke-width="2"/>
   <text x="1347" y="429" text-anchor="middle" class="environment">PUBLIC CLOUD / NEO-CLOUD</text>
@@ -114,8 +113,8 @@
   <text x="1350" y="524" text-anchor="middle" class="small">Decode 1</text>
   <rect x="1405" y="488" width="90" height="62" rx="15" fill="url(#decode)"/>
   <text x="1450" y="524" text-anchor="middle" class="small">Decode 2</text>
-  <path d="M1295 519 H1305" class="kv"/>
-  <path d="M1295 531 H1405" class="kv"/>
+  <path d="M1247 550 V580 H1350 V554" class="kv"/>
+  <path d="M1247 550 V598 H1450 V554" class="kv"/>
 
   <path d="M1120 309 L1000 386" class="line"/>
   <path d="M1240 309 L1340 386" class="line"/>
