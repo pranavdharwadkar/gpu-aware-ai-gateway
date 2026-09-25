@@ -238,17 +238,25 @@
             <span class="gateway-title">GPU-aware AI Gateway</span>
             <div class="engine-core">
               <small>ENDPOINT PICKER · DECISION ENGINE</small>
-              <strong>Selects the best GPU cluster</strong>
+              <strong>Endpoint Picker Decision Engine Selects best GPU cluster</strong>
               <p>Prompt shape + utilization + queue depth + cache state + active requests</p>
             </div>
           </div>
 
           <div class="route-feedback-layer" aria-hidden="true">
-            <div class="route-channel">
+            <div class="route-channel" aria-label="On-premise Prefill routing and telemetry">
               <span class="route-down"><small>Endpoint route</small><b>↓</b></span>
               <span class="telemetry-up"><b>↑</b><small>GPU telemetry</small></span>
             </div>
-            <div class="route-channel">
+            <div class="route-channel" aria-label="On-premise Decode routing and telemetry">
+              <span class="route-down"><small>Endpoint route</small><b>↓</b></span>
+              <span class="telemetry-up"><b>↑</b><small>GPU telemetry</small></span>
+            </div>
+            <div class="route-channel" aria-label="Public cloud Prefill routing and telemetry">
+              <span class="route-down"><small>Endpoint route</small><b>↓</b></span>
+              <span class="telemetry-up"><b>↑</b><small>GPU telemetry</small></span>
+            </div>
+            <div class="route-channel" aria-label="Public cloud Decode routing and telemetry">
               <span class="route-down"><small>Endpoint route</small><b>↓</b></span>
               <span class="telemetry-up"><b>↑</b><small>GPU telemetry</small></span>
             </div>
@@ -256,18 +264,40 @@
 
           <div class="infrastructure-layer">
             <div class="layer-label">GPU INFRASTRUCTURE</div>
-            <div class="cluster-grid">
-              <div class="gpu-cluster prefill-cluster">
-                <small>INPUT-PROCESSING HEAVY</small>
-                <strong>Prefill GPU Cluster</strong>
-                <p>Processes prompts, documents, histories, and retrieved context</p>
-                <div class="gpu-nodes"><span>GPU 01</span><span>GPU 02</span></div>
+            <div class="infra-environments">
+              <div class="infra-environment onprem-environment">
+                <span class="infra-environment-label">ON-PREMISE</span>
+                <div class="cluster-grid">
+                  <div class="gpu-cluster prefill-cluster">
+                    <small>INPUT-PROCESSING HEAVY</small>
+                    <strong>Prefill GPU Cluster</strong>
+                    <p>Processes prompts, documents, histories, and retrieved context</p>
+                    <div class="gpu-nodes"><span>GPU 01</span><span>GPU 02</span></div>
+                  </div>
+                  <div class="gpu-cluster decode-cluster">
+                    <small>OUTPUT-GENERATION HEAVY</small>
+                    <strong>Decode GPU Cluster</strong>
+                    <p>Generates response tokens and sustained output streams</p>
+                    <div class="gpu-nodes"><span>GPU 01</span><span>GPU 02</span></div>
+                  </div>
+                </div>
               </div>
-              <div class="gpu-cluster decode-cluster">
-                <small>OUTPUT-GENERATION HEAVY</small>
-                <strong>Decode GPU Cluster</strong>
-                <p>Generates response tokens and sustained output streams</p>
-                <div class="gpu-nodes"><span>GPU 01</span><span>GPU 02</span></div>
+              <div class="infra-environment cloud-environment">
+                <span class="infra-environment-label">PUBLIC CLOUD / NEO-CLOUD</span>
+                <div class="cluster-grid">
+                  <div class="gpu-cluster prefill-cluster">
+                    <small>INPUT-PROCESSING HEAVY</small>
+                    <strong>Prefill GPU Cluster</strong>
+                    <p>Elastic prompt-processing capacity</p>
+                    <div class="gpu-nodes"><span>GPU 01</span><span>GPU 02</span></div>
+                  </div>
+                  <div class="gpu-cluster decode-cluster">
+                    <small>OUTPUT-GENERATION HEAVY</small>
+                    <strong>Decode GPU Cluster</strong>
+                    <p>Elastic token-generation capacity</p>
+                    <div class="gpu-nodes"><span>GPU 01</span><span>GPU 02</span></div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
